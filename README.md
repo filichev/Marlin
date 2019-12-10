@@ -1,4 +1,9 @@
-﻿# Marlin 3D Printer Firmware
+﻿# Marlin 3D Printer Firmware -Sapphire Pro EDITION with 3.5" 480x320 TFT touchscreen.
+ Pure Marlin bugfix-2.0.x branch with added new TFT resolution class.
+ 
+ So many thx for Korbinian Heel https://escope.de/posts/sapphire-pro-marlin/
+ 
+ 
 
 [![Build Status](https://travis-ci.org/MarlinFirmware/Marlin.svg?branch=bugfix-2.0.x)](https://travis-ci.org/MarlinFirmware/Marlin)
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
