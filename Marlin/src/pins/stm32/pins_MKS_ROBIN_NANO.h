@@ -38,6 +38,12 @@
 //
 #define DISABLE_DEBUG
 
+// Testing - not working yet
+#define SPI_FLASH_EEPROM_EMULATION
+#define SPI_FLASH_EEPROM_OFFSET 0x700000
+#define SPI_FLASH_DEVICE 2
+#define SPI_FLASH_CS_PIN PB12
+
 //
 // Note: MKS Robin board is using SPI2 interface.
 //
@@ -49,7 +55,9 @@
 #define X_STOP_PIN        PA15
 #define Y_STOP_PIN        PA12
 #define Z_MIN_PIN         PA11
-#define Z_MAX_PIN         PC4
+//#define Z_MAX_PIN         PC4
+
+#define SERVO0_PIN PB2 //bltouch
 
 #ifndef FIL_RUNOUT_PIN
   #define FIL_RUNOUT_PIN   PA4   // MT_DET
@@ -74,25 +82,29 @@
 #define E0_STEP_PIN        PD6
 #define E0_DIR_PIN         PD3
 
-#define E1_ENABLE_PIN      PA3
-#define E1_STEP_PIN        PA6
-#define E1_DIR_PIN         PA1
+//#define E1_ENABLE_PIN      PA3
+//#define E1_STEP_PIN        PA6
+//#define E1_DIR_PIN         PA1
 
 //
 // Temperature Sensors
 //
-#define TEMP_0_PIN         PC1   // TH1
-#define TEMP_1_PIN         PC2   // TH2
-#define TEMP_BED_PIN       PC0   // TB1
+#define TEMP_0_PIN            PC1   // TH1
+#define TEMP_CHAMBER_PIN      PC2   // TH2 reused as chamber temp sensor
+
+//#define TEMP_1_PIN          PC2   // TH2
+
+#define TEMP_BED_PIN          PC0   // TB1
 
 //
 // Heaters / Fans
 //
 #define HEATER_0_PIN       PC3   // HEATER1
-#define HEATER_1_PIN       PB0   // HEATER2
+//#define HEATER_1_PIN       PB0   // HEATER2 reused as fan pin
 #define HEATER_BED_PIN     PA0   // HOT BED
 
 #define FAN_PIN            PB1   // FAN
+#define HOTEND_FAN_PIN       PB0 // Hotend fan on Heater2
 
 //
 // Thermocouples
@@ -120,15 +132,27 @@
  * to let the bootloader init the screen.
  */
 #if ENABLED(FSMC_GRAPHICAL_TFT)
+  //@
+  #define DOGLCD_MOSI -1 // prevent redefine Conditionals_post.h
+  #define DOGLCD_SCK -1
+
   #define FSMC_CS_PIN        PD7    // NE4
   #define FSMC_RS_PIN        PD11   // A0
 
-  #define LCD_RESET_PIN      PF6
-  #define NO_LCD_REINIT             // Suppress LCD re-initialization
+  #define LCD_USE_DMA_FSMC //
+  #define FSMC_DMA_DEV DMA2
+  #define FSMC_DMA_CHANNEL DMA_CH5
+
+  //#define LCD_RESET_PIN      PF6
+  //#define NO_LCD_REINIT             // Suppress LCD re-initialization
 
   #define LCD_BACKLIGHT_PIN  PD13
 
   #if ENABLED(TOUCH_BUTTONS)
+    //@
     #define TOUCH_CS_PIN     PA7
+    #define TOUCH_SCK_PIN PB13
+    #define TOUCH_MOSI_PIN PB15
+    #define TOUCH_MISO_PIN PB14
   #endif
 #endif
