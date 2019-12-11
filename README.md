@@ -3,6 +3,14 @@
  
  So many thx for Korbinian Heel https://escope.de/posts/sapphire-pro-marlin/
  
+<h1>WARNING! FOR PRINTER WITHOUT PROBE YOU MUST DISABLE THIS FUNCTIONS in Configuration.h</h1>
+
+#define bltouch <br>
+#define AUTO_BED_LEVELING_BILINEAR<br>
+#define Z_MIN_PROBE_REPEATABILITY_TEST<br>
+#define LCD_BED_LEVELING<br>
+#define Z_MIN_PROBE_REPEATABILITY_TEST<br>
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN<br>
  
 
 [![Build Status](https://travis-ci.org/MarlinFirmware/Marlin.svg?branch=bugfix-2.0.x)](https://travis-ci.org/MarlinFirmware/Marlin)
