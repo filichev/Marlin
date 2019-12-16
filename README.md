@@ -1,4 +1,17 @@
-﻿# Marlin 3D Printer Firmware
+﻿# Marlin 3D Printer Firmware -Sapphire Pro EDITION with 3.5" 480x320 TFT touchscreen.
+ Pure Marlin bugfix-2.0.x branch with added new TFT resolution class.
+ 
+ So many thx for Korbinian Heel https://escope.de/posts/sapphire-pro-marlin/
+ 
+<h1>WARNING! FOR PRINTER WITHOUT PROBE YOU MUST DISABLE THIS FUNCTIONS in Configuration.h</h1>
+
+#define bltouch <br>
+#define AUTO_BED_LEVELING_BILINEAR<br>
+#define Z_MIN_PROBE_REPEATABILITY_TEST<br>
+#define LCD_BED_LEVELING<br>
+#define Z_MIN_PROBE_REPEATABILITY_TEST<br>
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN<br>
+ 
 
 [![Build Status](https://travis-ci.org/MarlinFirmware/Marlin.svg?branch=bugfix-2.0.x)](https://travis-ci.org/MarlinFirmware/Marlin)
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
